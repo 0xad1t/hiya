@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepo Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: #333;
+            color: #eee;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background: linear-gradient(145deg, #444, #222);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #666;
+        }
+
+        h1 {
+            color: #f2f2f2;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin: 10px 0;
+            border: 2px solid #666;
+            border-radius: 5px;
+            background: #555;
+            color: #eee;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #666;
+            border-radius: 5px;
+            background: #444;
+            color: #eee;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        button:hover {
+            background: #555;
+            border-color: #777;
+        }
+
+        #result, #nextMessage {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="inputSection">
+            <h1>Masukkan Nama Kamu</h1>
+            <input type="text" id="nameInput" placeholder="Nama Kamu" required>
+            <br>
+            <button onclick="showResult()">Submit</button>
+        </div>
+
+        <div id="result">
+            <h1 id="kepoMessage"></h1>
+            <p><strong>Nama:</strong> Aditya Rahman</p>
+            <p><strong>Umur:</strong> 19</p>
+            <p><strong>Asal:</strong> Banjarmasin</p>
+            <p><strong>Hobi:</strong> Ngudud sambil mikir</p>
+            <p><strong>Status:</strong> HTS (Hubungan Tanpa Sengsara)</p>
+        </div>
+
+        <div id="nextMessage">
+            Udah ya pantek, jangan kepo lagi!
+        </div>
+    </div>
+
+    <script>
+        function showResult() {
+            var name = document.getElementById("nameInput").value;
+            if (name) {
+                document.getElementById("inputSection").style.display = "none";
+                document.getElementById("result").style.display = "block";
+                document.getElementById("kepoMessage").textContent = "Cie kamu kepo sama aku ya, " + name + "!";
+                
+                setTimeout(function() {
+                    document.getElementById("result").style.display = "none";
+                    document.getElementById("nextMessage").style.display = "block";
+                }, 5000);
+            } else {
+                alert("Masukkan nama dulu ya!");
+            }
+        }
+    </script>
+</body>
+</html>
